@@ -20,7 +20,6 @@ import routerBindings, {
 import dataProvider from "@refinedev/simple-rest";
 import { App as AntdApp } from "antd";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import { authProvider } from "./authProvider";
 import { Header } from "./components/header";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 
@@ -28,7 +27,6 @@ import { SensorDataList } from "./pages/sensor-data/SensorDataList";
 import SensorDataShow from "./pages/sensor-data/SensorDataShow"; // Importación corregida
 
 import { ForgotPassword } from "./pages/forgotPassword";
-import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 
 function App() {
@@ -42,7 +40,6 @@ function App() {
                 dataProvider={dataProvider("http://localhost:8081")}
                 notificationProvider={useNotificationProvider}
                 routerProvider={routerBindings}
-                authProvider={authProvider}
                 resources={[
                   {
                     name: "sensor_data",
@@ -86,7 +83,6 @@ function App() {
                       element={<ForgotPassword />}
                     />
                     <Route path="/register" element={<Register />} />
-                    <Route path="/login" element={<Login />} />
                     <Route path="*" element={<ErrorComponent />} />
                   </Route>
                 </Routes>
